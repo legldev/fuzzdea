@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="fuzzdea-gradient" x1="12" x2="52" y1="12" y2="52" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff6b3d" />
+      <stop offset="1" stop-color="#8ed8b1" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="18" fill="#14201b" />
+  <path
+    fill="url(#fuzzdea-gradient)"
+    d="M19 16h28v8H27v8h16v8H27v16h-8V16Z"
+  />
+</svg>

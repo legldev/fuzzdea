@@ -1,0 +1,341 @@
+.page {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100svh;
+  padding: 32px;
+  overflow: hidden;
+}
+
+.page__halo {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(18px);
+  opacity: 0.72;
+  pointer-events: none;
+  animation: drift 12s ease-in-out infinite;
+}
+
+.page__halo--one {
+  top: 12%;
+  left: -4%;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(255, 107, 61, 0.42), transparent 70%);
+}
+
+.page__halo--two {
+  right: -4%;
+  bottom: 8%;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(142, 216, 177, 0.38), transparent 70%);
+  animation-delay: -4s;
+}
+
+.hero {
+  position: relative;
+  z-index: 1;
+  width: min(1100px, 100%);
+  padding: 32px;
+  border: 1px solid var(--surface-border);
+  border-radius: 32px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.42));
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(24px);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 16px;
+  border: 1px solid rgba(20, 32, 27, 0.08);
+  border-radius: 24px;
+  pointer-events: none;
+}
+
+.hero__header {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 64px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.brand__mark {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
+  background: #14201b;
+  color: #f7f0e2;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.95rem;
+  letter-spacing: 0.2em;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.brand__name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.brand__meta {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.hero__domain {
+  padding: 10px 14px;
+  border: 1px solid var(--surface-border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.54);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.hero__body {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.85fr);
+  gap: 32px;
+  align-items: end;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: #a64624;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.hero__copy h1 {
+  max-width: 11ch;
+  font-size: clamp(3rem, 8vw, 6.4rem);
+  line-height: 0.92;
+  letter-spacing: -0.06em;
+}
+
+.lead {
+  max-width: 34rem;
+  margin-top: 24px;
+  color: var(--muted);
+  font-size: 1.08rem;
+}
+
+.hero__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.hero__tags span {
+  padding: 10px 16px;
+  border: 1px solid var(--surface-border);
+  border-radius: 999px;
+  background: var(--tag-bg);
+  color: var(--text);
+  font-size: 0.96rem;
+}
+
+.status-panel {
+  position: relative;
+  padding: 28px;
+  border-radius: 28px;
+  background: var(--panel);
+  color: #f7f0e2;
+  overflow: hidden;
+}
+
+.status-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 0%, rgba(255, 255, 255, 0.08) 45%, transparent 62%);
+  transform: translateX(-100%);
+  animation: shimmer 7s linear infinite;
+}
+
+.status-panel__label,
+.status-panel__caption {
+  position: relative;
+  z-index: 1;
+  font-family: 'IBM Plex Mono', monospace;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.status-panel__label {
+  color: rgba(247, 240, 226, 0.66);
+  font-size: 0.78rem;
+}
+
+.status-panel__headline,
+.status-panel__text {
+  position: relative;
+  z-index: 1;
+}
+
+.status-panel__headline {
+  margin-top: 14px;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  line-height: 1.02;
+}
+
+.status-panel__text {
+  margin-top: 14px;
+  color: var(--panel-muted);
+}
+
+.status-panel__meter {
+  position: relative;
+  z-index: 1;
+  margin: 24px 0 16px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+
+.status-panel__meter span {
+  display: block;
+  width: 68%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #ff6b3d 0%, #f8c47a 58%, #8ed8b1 100%);
+  animation: meterPulse 2.8s ease-in-out infinite;
+}
+
+.status-panel__caption {
+  position: relative;
+  z-index: 1;
+  color: rgba(247, 240, 226, 0.7);
+  font-size: 0.74rem;
+}
+
+.hero__footer {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid var(--surface-border);
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(0, -12px, 0) scale(1.04);
+  }
+}
+
+@keyframes shimmer {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes meterPulse {
+  0%,
+  100% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  50% {
+    transform: scaleX(0.94);
+    transform-origin: left;
+  }
+}
+
+@media (max-width: 900px) {
+  .page {
+    padding: 20px;
+  }
+
+  .hero {
+    padding: 24px;
+    border-radius: 28px;
+  }
+
+  .hero::before {
+    inset: 12px;
+    border-radius: 20px;
+  }
+
+  .hero__header {
+    flex-direction: column;
+    margin-bottom: 40px;
+  }
+
+  .hero__body {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__copy h1 {
+    max-width: none;
+  }
+
+  .hero__footer {
+    flex-direction: column;
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 560px) {
+  .brand {
+    align-items: flex-start;
+  }
+
+  .brand__mark {
+    width: 52px;
+    height: 52px;
+  }
+
+  .lead {
+    font-size: 1rem;
+  }
+
+  .hero__tags span {
+    width: 100%;
+    text-align: center;
+  }
+}
