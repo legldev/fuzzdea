@@ -6,13 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Fuzzdea is a software development company. The full website is coming soon."
+      content="Fuzzdea builds custom software, websites, and staff augmentation solutions for teams that need reliable execution."
     />
     <meta name="theme-color" content="#14201b" />
-    <title>Fuzzdea | Coming Soon</title>
+    <meta
+      property="og:title"
+      content="Fuzzdea | Software development, websites, and staff augmentation"
+    />
+    <meta
+      property="og:description"
+      content="Custom software, websites, staff augmentation, and ongoing support for teams that need to move faster."
+    />
+    <meta property="og:type" content="website" />
+    <title>Fuzzdea | Software development, websites, and staff augmentation</title>
   </head>
   <body>
     <div id="root"></div>
+    <form
+      name="contacto"
+      method="POST"
+      action="/"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      hidden
+    >
+      <input type="hidden" name="form-name" value="contacto" />
+      <input
+        type="hidden"
+        name="subject"
+        value="New lead from %{formName} (%{submissionId})"
+        data-remove-prefix
+      />
+      <input type="hidden" name="language" value="en" />
+      <input type="text" name="name" />
+      <input type="text" name="company" />
+      <input type="email" name="email" />
+      <input type="text" name="service_label" />
+      <select name="service">
+        <option value="custom">Custom software development</option>
+        <option value="web">Websites and landing pages</option>
+        <option value="augmentation">Staff augmentation</option>
+        <option value="support">Support and evolution</option>
+      </select>
+      <textarea name="message"></textarea>
+      <input type="text" name="bot-field" />
+    </form>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
