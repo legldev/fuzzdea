@@ -10,9 +10,9 @@ const storageKeys = {
 const content = {
   en: {
     meta: {
-      title: 'Fuzzdea | Software development, websites, and staff augmentation',
+      title: 'fuzzdea | Software development, websites, and staff augmentation',
       description:
-        'Fuzzdea builds custom software, commercial websites, and staff augmentation solutions for teams that need to move faster.',
+        'fuzzdea builds custom software, commercial websites, and staff augmentation solutions for teams that need to move faster.',
     },
     ui: {
       language: 'Language',
@@ -285,16 +285,16 @@ const content = {
       subject: 'New lead from %{formName} (%{submissionId})',
     },
     footer: {
-      brand: 'Fuzzdea',
-      note: '© Fuzzdea. Made with ♥',
+      brand: 'fuzzdea',
+      note: '© fuzzdea. Made with ♥.',
       text: 'Software development, AI automation, websites, and staff augmentation.',
     },
   },
   es: {
     meta: {
-      title: 'Fuzzdea | Desarrollo de software, sitios web y staff augmentation',
+      title: 'fuzzdea | Desarrollo de software, sitios web y staff augmentation',
       description:
-        'Fuzzdea construye software a medida, sitios comerciales y soluciones de staff augmentation para equipos que necesitan avanzar más rápido.',
+        'fuzzdea construye software a medida, sitios comerciales y soluciones de staff augmentation para equipos que necesitan avanzar más rápido.',
     },
     ui: {
       language: 'Idioma',
@@ -567,8 +567,8 @@ const content = {
       subject: 'Nuevo lead desde %{formName} (%{submissionId})',
     },
     footer: {
-      brand: 'Fuzzdea',
-      note: '© Fuzzdea. Made with ♥.',
+      brand: 'fuzzdea',
+      note: '© fuzzdea. Made with ♥.',
       text: 'Desarrollo de software, automatización con IA, sitios web y staff augmentation.',
     },
   },
@@ -590,6 +590,16 @@ function getInitialTheme() {
   return window.localStorage.getItem(storageKeys.theme) === 'dark'
     ? 'dark'
     : 'light'
+}
+
+function getInitialCaptchaSize() {
+  if (typeof window === 'undefined') {
+    return 'flexible'
+  }
+
+  return window.matchMedia('(max-width: 560px)').matches
+    ? 'compact'
+    : 'flexible'
 }
 
 function setMeta(selector, content, attribute = 'name') {
@@ -646,7 +656,14 @@ function loadTurnstileScript() {
   return window.__fuzzdeaTurnstilePromise
 }
 
-function TurnstileWidget({ language, onError, onSuccess, siteKey, theme }) {
+function TurnstileWidget({
+  language,
+  onError,
+  onSuccess,
+  siteKey,
+  size,
+  theme,
+}) {
   const containerRef = useRef(null)
   const handleSuccess = useEffectEvent(onSuccess)
   const handleError = useEffectEvent(onError)
@@ -669,7 +686,7 @@ function TurnstileWidget({ language, onError, onSuccess, siteKey, theme }) {
           sitekey: siteKey,
           theme,
           language,
-          size: 'flexible',
+          size,
           'response-field': false,
           callback: (token) => handleSuccess(token),
           'expired-callback': () => handleError(),
@@ -687,7 +704,7 @@ function TurnstileWidget({ language, onError, onSuccess, siteKey, theme }) {
         window.turnstile.remove(widgetId)
       }
     }
-  }, [language, siteKey, theme])
+  }, [language, siteKey, size, theme])
 
   return <div className="turnstile-widget" ref={containerRef} />
 }
@@ -774,6 +791,7 @@ function App() {
   const [formStatus, setFormStatus] = useState('idle')
   const [captchaToken, setCaptchaToken] = useState('')
   const [captchaVersion, setCaptchaVersion] = useState(0)
+  const [captchaSize, setCaptchaSize] = useState(getInitialCaptchaSize)
 
   const captchaSiteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY || ''
   const isCaptchaConfigured = Boolean(captchaSiteKey)
@@ -801,6 +819,33 @@ function App() {
     setCaptchaToken('')
     setCaptchaVersion((current) => current + 1)
   }, [locale, theme])
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return undefined
+    }
+
+    const mediaQuery = window.matchMedia('(max-width: 560px)')
+    const syncCaptchaSize = (event) => {
+      setCaptchaSize(event.matches ? 'compact' : 'flexible')
+    }
+
+    setCaptchaSize(mediaQuery.matches ? 'compact' : 'flexible')
+
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener('change', syncCaptchaSize)
+
+      return () => {
+        mediaQuery.removeEventListener('change', syncCaptchaSize)
+      }
+    }
+
+    mediaQuery.addListener(syncCaptchaSize)
+
+    return () => {
+      mediaQuery.removeListener(syncCaptchaSize)
+    }
+  }, [])
 
   function handleChange(event) {
     const { name, value } = event.target
@@ -880,7 +925,7 @@ function App() {
                 FD
               </span>
               <span>
-                <strong className="brand__name">Fuzzdea</strong>
+                <strong className="brand__name">fuzzdea</strong>
                 <span className="brand__meta">
                   {locale === 'en'
                     ? 'Software services'
@@ -1289,6 +1334,7 @@ function App() {
                       }
                     }}
                     siteKey={captchaSiteKey}
+                    size={captchaSize}
                     theme={theme}
                   />
                   <p className="form-note">{t.form.captchaReady}</p>

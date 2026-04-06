@@ -1,4 +1,4 @@
-# Fuzzdea Landing Page
+# fuzzdea Landing Page
 
 Landing page preview for `fuzzdea.com`, built with React and Vite.
 
@@ -17,4 +17,4 @@ Landing page preview for `fuzzdea.com`, built with React and Vite.
 
 ## Notes
 
-The current page is a lightweight "coming soon" screen for the Fuzzdea company website.
+The current page is a lightweight "coming soon" screen for the fuzzdea company website.

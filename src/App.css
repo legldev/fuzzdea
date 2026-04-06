@@ -842,11 +842,17 @@
 }
 
 .turnstile-widget {
+  display: flex;
+  justify-content: center;
   min-height: 68px;
   max-width: 100%;
 }
 
 .turnstile-widget > div {
+  max-width: 100%;
+}
+
+.turnstile-widget iframe {
   max-width: 100%;
 }
 
