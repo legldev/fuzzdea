@@ -25,9 +25,12 @@ const content = {
       secondaryCta: 'See services',
       contactCta: 'Contact us',
       nextStepCta: 'Open form',
+      switchLanguage: 'Switch language',
+      switchTheme: 'Switch theme',
     },
     navigation: [
       { label: 'Services', href: '#services' },
+      { label: 'AI', href: '#ai' },
       { label: 'Models', href: '#models' },
       { label: 'Process', href: '#process' },
       { label: 'FAQs', href: '#faqs' },
@@ -42,6 +45,7 @@ const content = {
         'Custom software',
         'Websites and landing pages',
         'Staff augmentation',
+        'AI automation',
       ],
       solveEyebrow: 'What we do',
       solveTitle: 'We turn business needs into software that ships.',
@@ -70,7 +74,7 @@ const content = {
     values: [
       'Business-focused delivery',
       'Clear communication',
-      'Flexible collaboration',
+      'AI and workflow automation',
     ],
     servicesIntro: {
       eyebrow: 'Services',
@@ -102,6 +106,50 @@ const content = {
         title: 'Support and evolution',
         description: 'Refactors, maintenance, automation, and continuous improvement.',
         bullets: ['Technical cleanup', 'Feature evolution', 'Ongoing support'],
+      },
+      {
+        key: 'ai',
+        title: 'AI automation and agents',
+        description: 'Practical AI solutions that remove repetitive work and speed up operations.',
+        bullets: ['AI agents and copilots', 'Workflow automation', 'Knowledge and document processing'],
+      },
+    ],
+    aiIntro: {
+      eyebrow: 'AI automation',
+      title: 'We also build AI workflows that automate repetitive work.',
+      description:
+        'We can help teams deploy AI where it creates clear operational value: support, internal knowledge, document handling, and cross-system workflows.',
+    },
+    aiServices: [
+      {
+        title: 'AI agents and copilots',
+        description:
+          'Internal assistants, support agents, and operational copilots connected to your business context.',
+      },
+      {
+        title: 'Workflow automation',
+        description:
+          'Multi-step automations for routing, approvals, CRM updates, follow-ups, and repetitive back-office tasks.',
+      },
+      {
+        title: 'Knowledge assistants',
+        description:
+          'Search and answer experiences grounded in your docs, SOPs, product info, and internal knowledge base.',
+      },
+      {
+        title: 'Intelligent document processing',
+        description:
+          'Extraction, classification, validation, and processing for invoices, forms, contracts, and operational documents.',
+      },
+      {
+        title: 'Customer support automation',
+        description:
+          'AI support experiences that answer common questions, route complex cases, and assist human teams with context.',
+      },
+      {
+        title: 'Sales and operations automation',
+        description:
+          'Automations that qualify leads, update CRMs, trigger follow-ups, and connect repetitive operational steps across systems.',
       },
     ],
     modelsIntro: {
@@ -209,6 +257,7 @@ const content = {
         'The business problem behind it',
         'Current team, stack, or project stage',
         'Timeline or urgency',
+        'Any systems or tools involved',
       ],
     },
     form: {
@@ -237,7 +286,8 @@ const content = {
     },
     footer: {
       brand: 'Fuzzdea',
-      text: 'Software development, websites, and staff augmentation.',
+      note: '© Fuzzdea. Made with ♥',
+      text: 'Software development, AI automation, websites, and staff augmentation.',
     },
   },
   es: {
@@ -257,9 +307,12 @@ const content = {
       secondaryCta: 'Ver servicios',
       contactCta: 'Hablemos',
       nextStepCta: 'Ir al formulario',
+      switchLanguage: 'Cambiar idioma',
+      switchTheme: 'Cambiar tema',
     },
     navigation: [
       { label: 'Servicios', href: '#services' },
+      { label: 'IA', href: '#ai' },
       { label: 'Modelos', href: '#models' },
       { label: 'Proceso', href: '#process' },
       { label: 'FAQs', href: '#faqs' },
@@ -274,6 +327,7 @@ const content = {
         'Software a medida',
         'Sitios web y landings',
         'Staff augmentation',
+        'Automatización con IA',
       ],
       solveEyebrow: 'Qué hacemos',
       solveTitle: 'Convertimos necesidades reales en software que sale a producción.',
@@ -302,7 +356,7 @@ const content = {
     values: [
       'Entrega con foco en negocio',
       'Comunicación clara',
-      'Colaboración flexible',
+      'IA y automatización de procesos',
     ],
     servicesIntro: {
       eyebrow: 'Servicios',
@@ -334,6 +388,50 @@ const content = {
         title: 'Soporte y evolución',
         description: 'Refactors, mantenimiento, automatización y mejora continua.',
         bullets: ['Orden técnico', 'Evolución funcional', 'Soporte continuo'],
+      },
+      {
+        key: 'ai',
+        title: 'IA, automatización y agentes',
+        description: 'Soluciones de IA prácticas para reducir trabajo repetitivo y acelerar operaciones.',
+        bullets: ['Agentes y copilots', 'Automatización de workflows', 'Conocimiento y documentos'],
+      },
+    ],
+    aiIntro: {
+      eyebrow: 'IA y automatización',
+      title: 'También construimos workflows con IA para automatizar trabajo repetitivo.',
+      description:
+        'Podemos implementar IA donde genera valor operativo claro: soporte, conocimiento interno, procesamiento documental y flujos entre sistemas.',
+    },
+    aiServices: [
+      {
+        title: 'Agentes y copilots',
+        description:
+          'Asistentes internos, agentes de soporte y copilots operativos conectados a tu contexto de negocio.',
+      },
+      {
+        title: 'Automatización de workflows',
+        description:
+          'Automatizaciones multi-step para ruteo, aprobaciones, actualizaciones de CRM y tareas repetitivas de back-office.',
+      },
+      {
+        title: 'Asistentes de conocimiento',
+        description:
+          'Experiencias de búsqueda y respuesta basadas en documentación, SOPs, contenido de producto y base interna.',
+      },
+      {
+        title: 'Procesamiento inteligente de documentos',
+        description:
+          'Extracción, clasificación, validación y procesamiento de facturas, formularios, contratos y documentos operativos.',
+      },
+      {
+        title: 'Automatización de soporte',
+        description:
+          'Experiencias de soporte con IA que responden preguntas frecuentes, derivan casos complejos y asisten al equipo humano con contexto.',
+      },
+      {
+        title: 'Automatización comercial y operativa',
+        description:
+          'Automatizaciones para calificar leads, actualizar CRMs, disparar follow-ups y conectar tareas operativas repetitivas entre sistemas.',
       },
     ],
     modelsIntro: {
@@ -441,6 +539,7 @@ const content = {
         'Qué problema de negocio querés resolver',
         'Equipo, stack o etapa actual',
         'Tiempo deseado o urgencia',
+        'Qué sistemas o herramientas están involucrados',
       ],
     },
     form: {
@@ -469,7 +568,8 @@ const content = {
     },
     footer: {
       brand: 'Fuzzdea',
-      text: 'Desarrollo de software, sitios web y staff augmentation.',
+      note: '© Fuzzdea. Made with ♥.',
+      text: 'Desarrollo de software, automatización con IA, sitios web y staff augmentation.',
     },
   },
 }
@@ -592,6 +692,74 @@ function TurnstileWidget({ language, onError, onSuccess, siteKey, theme }) {
   return <div className="turnstile-widget" ref={containerRef} />
 }
 
+function GlobeIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none">
+      <path
+        d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.8"
+      />
+      <path
+        d="M3.6 9H20.4"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.8"
+      />
+      <path
+        d="M3.6 15H20.4"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.8"
+      />
+      <path
+        d="M12 3C14.3403 5.46402 15.6714 8.71697 15.75 12C15.6714 15.283 14.3403 18.536 12 21C9.65971 18.536 8.32862 15.283 8.25 12C8.32862 8.71697 9.65971 5.46402 12 3Z"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.8"
+      />
+    </svg>
+  )
+}
+
+function SunIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none">
+      <path
+        d="M12 7.25C14.6234 7.25 16.75 9.37665 16.75 12C16.75 14.6234 14.6234 16.75 12 16.75C9.37665 16.75 7.25 14.6234 7.25 12C7.25 9.37665 9.37665 7.25 12 7.25Z"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      />
+      <path
+        d="M12 2.75V4.75M12 19.25V21.25M21.25 12H19.25M4.75 12H2.75M18.54 5.46L17.12 6.88M6.88 17.12L5.46 18.54M18.54 18.54L17.12 17.12M6.88 6.88L5.46 5.46"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.8"
+      />
+    </svg>
+  )
+}
+
+function MoonIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none">
+      <path
+        d="M20.4 14.2C19.41 14.73 18.28 15.03 17.08 15.03C13.2 15.03 10.05 11.88 10.05 8C10.05 6.8 10.35 5.67 10.88 4.68C7.07 5.59 4.25 9.02 4.25 13.1C4.25 17.87 8.13 21.75 12.9 21.75C16.98 21.75 20.41 18.93 21.32 15.12C21.02 14.79 20.71 14.48 20.4 14.2Z"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.8"
+      />
+    </svg>
+  )
+}
+
 function App() {
   const [locale, setLocale] = useState(getInitialLocale)
   const [theme, setTheme] = useState(getInitialTheme)
@@ -613,6 +781,8 @@ function App() {
   const selectedService = t.services.find(
     (service) => service.key === formData.service,
   )
+  const nextLocale = locale === 'en' ? 'es' : 'en'
+  const nextTheme = theme === 'light' ? 'dark' : 'light'
 
   useEffect(() => {
     document.documentElement.lang = locale
@@ -704,17 +874,51 @@ function App() {
 
       <div className="shell">
         <header className="site-header">
-          <a className="brand" href="#home" aria-label="Go to home">
-            <span className="brand__mark" aria-hidden="true">
-              FD
-            </span>
-            <span>
-              <strong className="brand__name">Fuzzdea</strong>
-              <span className="brand__meta">
-                {locale === 'en' ? 'Software services' : 'Servicios de software'}
+          <div className="site-header__top">
+            <a className="brand" href="#home" aria-label="Go to home">
+              <span className="brand__mark" aria-hidden="true">
+                FD
               </span>
-            </span>
-          </a>
+              <span>
+                <strong className="brand__name">Fuzzdea</strong>
+                <span className="brand__meta">
+                  {locale === 'en'
+                    ? 'Software services'
+                    : 'Servicios de software'}
+                </span>
+              </span>
+            </a>
+
+            <div className="site-controls site-controls--mobile">
+              <button
+                className="icon-toggle"
+                onClick={() => setLocale(nextLocale)}
+                type="button"
+                aria-label={t.ui.switchLanguage}
+                title={t.ui.switchLanguage}
+              >
+                <span className="icon-toggle__icon" aria-hidden="true">
+                  <GlobeIcon />
+                </span>
+                <span className="icon-toggle__text">{locale.toUpperCase()}</span>
+              </button>
+
+              <button
+                className="icon-toggle"
+                onClick={() => setTheme(nextTheme)}
+                type="button"
+                aria-label={t.ui.switchTheme}
+                title={t.ui.switchTheme}
+              >
+                <span className="icon-toggle__icon" aria-hidden="true">
+                  {theme === 'light' ? <MoonIcon /> : <SunIcon />}
+                </span>
+                <span className="sr-only">
+                  {theme === 'light' ? t.ui.dark : t.ui.light}
+                </span>
+              </button>
+            </div>
+          </div>
 
           <nav className="site-nav" aria-label="Primary">
             {t.navigation.map((item) => (
@@ -724,7 +928,7 @@ function App() {
             ))}
           </nav>
 
-          <div className="site-controls">
+          <div className="site-controls site-controls--desktop">
             <div className="toggle-group" aria-label={t.ui.language}>
               <button
                 className={`toggle ${locale === 'en' ? 'toggle--active' : ''}`}
@@ -742,20 +946,37 @@ function App() {
               </button>
             </div>
 
-            <div className="toggle-group" aria-label={t.ui.theme}>
+            <div
+              className="toggle-group toggle-group--icons"
+              aria-label={t.ui.theme}
+            >
               <button
-                className={`toggle ${theme === 'light' ? 'toggle--active' : ''}`}
+                className={`toggle toggle--icon ${
+                  theme === 'light' ? 'toggle--active' : ''
+                }`}
                 onClick={() => setTheme('light')}
                 type="button"
+                aria-label={t.ui.light}
+                title={t.ui.light}
               >
-                {t.ui.light}
+                <span className="toggle__icon" aria-hidden="true">
+                  <SunIcon />
+                </span>
+                <span className="sr-only">{t.ui.light}</span>
               </button>
               <button
-                className={`toggle ${theme === 'dark' ? 'toggle--active' : ''}`}
+                className={`toggle toggle--icon ${
+                  theme === 'dark' ? 'toggle--active' : ''
+                }`}
                 onClick={() => setTheme('dark')}
                 type="button"
+                aria-label={t.ui.dark}
+                title={t.ui.dark}
               >
-                {t.ui.dark}
+                <span className="toggle__icon" aria-hidden="true">
+                  <MoonIcon />
+                </span>
+                <span className="sr-only">{t.ui.dark}</span>
               </button>
             </div>
 
@@ -840,6 +1061,29 @@ function App() {
                     <li key={bullet}>{bullet}</li>
                   ))}
                 </ul>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="section" id="ai">
+          <div className="section__intro">
+            <p className="section__eyebrow">{t.aiIntro.eyebrow}</p>
+            <h2>{t.aiIntro.title}</h2>
+            <p>{t.aiIntro.description}</p>
+          </div>
+
+          <div className="ai-grid">
+            {t.aiServices.map((service, index) => (
+              <article
+                className={`ai-card ${index === 0 ? 'ai-card--accent' : ''}`}
+                key={service.title}
+              >
+                <span className="ai-card__index">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <h3>{service.title}</h3>
+                <p>{service.description}</p>
               </article>
             ))}
           </div>
@@ -1074,7 +1318,10 @@ function App() {
         </section>
 
         <footer className="site-footer">
-          <p>{t.footer.brand}</p>
+          <div className="site-footer__brand">
+            <p>{t.footer.brand}</p>
+            <p>{t.footer.note}</p>
+          </div>
           <p>{t.footer.text}</p>
         </footer>
       </div>
