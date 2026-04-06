@@ -2,6 +2,12 @@ import { useEffect, useEffectEvent, useRef, useState } from 'react'
 import './App.css'
 
 const formName = 'contacto'
+const siteUrl = 'https://fuzzdea.com'
+const ogImageUrl = `${siteUrl}/og-image.svg`
+const seoLocaleMap = {
+  en: 'en_US',
+  es: 'es_AR',
+}
 const storageKeys = {
   locale: 'fuzzdea-locale',
   theme: 'fuzzdea-theme',
@@ -10,9 +16,10 @@ const storageKeys = {
 const content = {
   en: {
     meta: {
-      title: 'fuzzdea | Software development, websites, and staff augmentation',
+      title:
+        'fuzzdea | Custom Software Development, AI Automation & Web Development',
       description:
-        'fuzzdea builds custom software, commercial websites, and staff augmentation solutions for teams that need to move faster.',
+        'Custom software development, web development, AI automation, and staff augmentation for startups, SMBs, and growing teams.',
     },
     ui: {
       language: 'Language',
@@ -292,9 +299,10 @@ const content = {
   },
   es: {
     meta: {
-      title: 'fuzzdea | Desarrollo de software, sitios web y staff augmentation',
+      title:
+        'fuzzdea | Desarrollo de software, automatizacion con IA y desarrollo web',
       description:
-        'fuzzdea construye software a medida, sitios comerciales y soluciones de staff augmentation para equipos que necesitan avanzar más rápido.',
+        'Desarrollo de software a medida, desarrollo web, automatizacion con IA y staff augmentation para startups, pymes y equipos en crecimiento.',
     },
     ui: {
       language: 'Idioma',
@@ -614,6 +622,83 @@ function setMeta(selector, content, attribute = 'name') {
   element.setAttribute('content', content)
 }
 
+function setLink(rel, href) {
+  let element = document.head.querySelector(`link[rel="${rel}"]`)
+
+  if (!element) {
+    element = document.createElement('link')
+    element.setAttribute('rel', rel)
+    document.head.appendChild(element)
+  }
+
+  element.setAttribute('href', href)
+}
+
+function setStructuredData(data) {
+  let element = document.getElementById('fuzzdea-structured-data')
+
+  if (!element) {
+    element = document.createElement('script')
+    element.id = 'fuzzdea-structured-data'
+    element.type = 'application/ld+json'
+    document.head.appendChild(element)
+  }
+
+  element.textContent = JSON.stringify(data)
+}
+
+function buildStructuredData(locale, t) {
+  const localeCode = locale === 'en' ? 'en' : 'es'
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Organization',
+        '@id': `${siteUrl}/#organization`,
+        name: 'fuzzdea',
+        url: `${siteUrl}/`,
+        logo: `${siteUrl}/favicon.svg`,
+      },
+      {
+        '@type': 'WebSite',
+        '@id': `${siteUrl}/#website`,
+        url: `${siteUrl}/`,
+        name: 'fuzzdea',
+        description: t.meta.description,
+        inLanguage: localeCode,
+        publisher: {
+          '@id': `${siteUrl}/#organization`,
+        },
+      },
+      {
+        '@type': 'ProfessionalService',
+        '@id': `${siteUrl}/#service`,
+        name: 'fuzzdea',
+        url: `${siteUrl}/`,
+        description: t.meta.description,
+        areaServed: 'Worldwide',
+        availableLanguage: ['en', 'es'],
+        serviceType: t.services.map((service) => service.title),
+        knowsAbout: t.services.map((service) => service.title),
+      },
+      {
+        '@type': 'FAQPage',
+        '@id': `${siteUrl}/#faq`,
+        inLanguage: localeCode,
+        mainEntity: t.faqs.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer,
+          },
+        })),
+      },
+    ],
+  }
+}
+
 function loadTurnstileScript() {
   if (typeof window === 'undefined') {
     return Promise.reject(new Error('Turnstile is unavailable on the server'))
@@ -810,10 +895,27 @@ function App() {
 
     document.title = t.meta.title
     setMeta('description', t.meta.description)
+    setMeta(
+      'robots',
+      'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1',
+    )
+    setMeta('application-name', 'fuzzdea')
     setMeta('og:title', t.meta.title, 'property')
     setMeta('og:description', t.meta.description, 'property')
+    setMeta('og:url', `${siteUrl}/`, 'property')
+    setMeta('og:site_name', 'fuzzdea', 'property')
+    setMeta('og:image', ogImageUrl, 'property')
+    setMeta('og:image:alt', 'fuzzdea software and AI automation services', 'property')
+    setMeta('og:locale', seoLocaleMap[locale], 'property')
+    setMeta('twitter:card', 'summary_large_image')
+    setMeta('twitter:title', t.meta.title)
+    setMeta('twitter:description', t.meta.description)
+    setMeta('twitter:image', ogImageUrl)
+    setMeta('twitter:image:alt', 'fuzzdea software and AI automation services')
     setMeta('theme-color', theme === 'dark' ? '#0f1916' : '#11201c')
-  }, [locale, theme, t.meta.description, t.meta.title])
+    setLink('canonical', `${siteUrl}/`)
+    setStructuredData(buildStructuredData(locale, t))
+  }, [locale, t, theme])
 
   useEffect(() => {
     setCaptchaToken('')

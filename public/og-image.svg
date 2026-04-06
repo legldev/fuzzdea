@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">fuzzdea social preview</title>
+  <desc id="desc">Custom software development, AI automation, web development, and staff augmentation.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#13201c" />
+      <stop offset="1" stop-color="#0b1512" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#ff7643" />
+      <stop offset="1" stop-color="#8ed8b1" />
+    </linearGradient>
+    <filter id="blur">
+      <feGaussianBlur stdDeviation="60" />
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <g opacity="0.34" filter="url(#blur)">
+    <circle cx="210" cy="120" r="140" fill="#ff7643" />
+    <circle cx="1040" cy="120" r="120" fill="#8ed8b1" />
+  </g>
+
+  <g opacity="0.08">
+    <path d="M0 90H1200M0 180H1200M0 270H1200M0 360H1200M0 450H1200M0 540H1200" stroke="#fff" />
+    <path d="M120 0V630M240 0V630M360 0V630M480 0V630M600 0V630M720 0V630M840 0V630M960 0V630M1080 0V630" stroke="#fff" />
+  </g>
+
+  <rect x="74" y="72" width="132" height="132" rx="34" fill="#10201d" />
+  <path fill="url(#accent)" d="M111 103h58v17h-41v20h31v17h-31v47h-17v-101Z" />
+
+  <text x="256" y="138" fill="#f6efdf" font-family="'Space Grotesk', Arial, sans-serif" font-size="44" font-weight="700" letter-spacing="8">fuzzdea</text>
+  <text x="82" y="298" fill="#f6efdf" font-family="'Space Grotesk', Arial, sans-serif" font-size="82" font-weight="700">
+    <tspan x="82" dy="0">Custom software, AI automation,</tspan>
+    <tspan x="82" dy="96">web development, and staff</tspan>
+    <tspan x="82" dy="96">augmentation.</tspan>
+  </text>
+  <text x="84" y="570" fill="#b7b8af" font-family="'IBM Plex Mono', monospace" font-size="28" letter-spacing="3">
+    SOFTWARE DELIVERY FOR STARTUPS, SMBS, AND GROWING TEAMS
+  </text>
+</svg>
